@@ -12,13 +12,16 @@
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
 
 </head>
-<body class="{{body_class}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Modern sans-serif"}} has-sans-body{{/match}}{{#if @custom.show_publication_cover}} has-cover{{/if}}{{#is "home"}}{{#unless @custom.show_logo_in_navigation}} no-logo{{/unless}}{{/is}}">
+<body class="{{body_class}}">
 <div class="viewport">
 
     <header id="gh-head" class="gh-head outer">
@@ -26,11 +29,7 @@
 
             <div class="gh-head-brand">
                 <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                    {{else}}
-                        {{@site.title}}
-                    {{/if}}
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
                 </a>
                 <a class="gh-burger" role="button">
                     <div class="gh-burger-box">
@@ -43,18 +42,16 @@
             </div>
             <div class="gh-head-actions">
                 <div class="gh-social">
-                    {{#if @site.facebook}}
-                        <a class="gh-social-link gh-social-facebook" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                    {{/if}}
-                    {{#if @site.twitter}}
-                        <a class="gh-social-link gh-social-twitter" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                    {{/if}}
+					<a class="gh-social-link gh-social-facebook" href="https://www.facebook.com/karaoplaycom" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+					<a class="gh-social-link gh-social-youtube" href="https://www.youtube.com/c/karaoplay" title="Youtube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+					<a class="gh-social-link gh-social-instagram" href="https://www.instagram.com/karaoplaycom" title="Instagram" target="_blank" rel="noopener">{{> "icons/instagram"}}</a>
+					<a class="gh-social-link gh-social-twitter" href="https://twitter.com/karaoplaycom" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                 </div>
                 {{#if @site.members_enabled}}
                     {{#unless @member}}
-                        <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                        <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribirse</a>
                     {{else}}
-                        <a class="gh-head-button" href="#/portal/account" data-portal="account">Account</a>
+                        <a class="gh-head-button" href="#/portal/account" data-portal="account">Cuenta</a>
                     {{/unless}}
                 {{/if}}
             </div>
@@ -69,11 +66,11 @@
     {{!-- The global footer at the very bottom of the screen --}}
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
+            <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; 2006-{{date format="YYYY"}}. Todos los derechos reservados.</section>
             <nav class="site-footer-nav">
                 {{navigation type="secondary"}}
             </nav>
-            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+            <div><a href="https://instagram.com/soybetodev" target="_blank" rel="noopener">Desarrollado por <strong>Soybetodev</strong></a></div>
         </div>
     </footer>
 
